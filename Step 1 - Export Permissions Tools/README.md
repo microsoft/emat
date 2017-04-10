@@ -11,3 +11,8 @@ At the moment SendOnBehlf and Folder Permissions are not exported. This function
 
 Check [Documentation] pages for information.
 
+
+The ExportScript.T2T.ps1 is a porting of the script to allow to get Exchange permissions from Office 365.
+This scenario cames up from a particular requirement from a customer that need to migrate Tenant2Tenant and wants to create migration batches.
+
+
