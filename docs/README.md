@@ -1,17 +1,3 @@
----
-layout: homepage
-title: EMAT
- Exchange Migration Assessment Tool
-
-keywords: EMAT
- Exchange Migration Assessment Tool
-
-tags: [overview]
-permalink: index.html
-comments: true
-summary: 
----
-
 # EMAT
  Exchange Migration Assessment Tool
 
