@@ -3,6 +3,31 @@ Param(
 )
 
 
+# Prerequisites Check
+
+
+if ((get-host).Version.Major -le 4) {
+
+    write-host -foregroundcolor red "You are running an old (and unsupported) version of Powershell, please consider to update the Powershell before running this script"
+    exit
+
+}
+
+if ( (Get-Command get-mailbox -errorAction SilentlyContinue) -eq $null )
+{
+    write-host -foregroundcolor red "Exchange Powershell module is not available, be sure to run the script from a server that have this feature installed"
+    exit
+}
+
+
+if ( (Get-Command get-group -errorAction SilentlyContinue) -eq $null )
+{
+    write-host -foregroundcolor red "AD DS Powershell module is not available, be sure to run the script from a server that have this feature installed"
+    exit
+}
+
+
+
 # To run the script as a scheduled task or unattend script uncomment the following line
 # $silent=$true
 
@@ -22,6 +47,7 @@ if ($MailboxesFileSize -gt 7 -and $silent -eq $false) {
 	$response=read-host "Do you want to split the mailboxes file? (Y/N)"
 
 	if ($response -eq "y" -or $response -eq "Y" -or $response -eq "") {
+		$splitrow=Get-Content .\ExportScript.ps1 | Select-String "# GOTO::START OF PERMISSIONS EXPORT" | Select-Object -ExpandProperty 'LineNumber'
 		write-host -ForegroundColor green "I'll do the split for you"
 		$howmany=read-host "How many sessions/servers you want to use?"
 		write-host -ForegroundColor green -NoNewLine "Reading mailboxes file..."
@@ -36,7 +62,7 @@ if ($MailboxesFileSize -gt 7 -and $silent -eq $false) {
 		cd Sessions
 		mkdir Session1  > $null
 		$original_file | select -first $first -last $last | export-csv Session1\Session_1.csv -encoding "unicode" -NoTypeInformation
-		Get-Content ..\ExportScript.ps1 | select -skip 80 >> Session1\ExportScript.ps1
+		Get-Content ..\ExportScript.ps1 | select -skip $splitrow[1] >> Session1\ExportScript.ps1
 		write-host -foregroundColor green "The files will cointains about $block users each"
 		write-host -ForegroundColor yellow "Session 1 - Created - from $first to $last"
 
@@ -45,7 +71,7 @@ if ($MailboxesFileSize -gt 7 -and $silent -eq $false) {
 			$last=$last+$block
 			mkdir Session$i > $null
 			$original_file | select -skip $first -first $block | export-csv Session$i\mailboxes.csv -encoding "unicode" -NoTypeInformation
-			Get-Content ..\ExportScript.ps1 | select -skip 80 >> Session$i\ExportScript.ps1
+			Get-Content ..\ExportScript.ps1 | select -skip $splitrow[1] >> Session$i\ExportScript.ps1
 			write-host -ForegroundColor yellow "Session $i - Created - from $first to $last"
 		}
 	}
