@@ -6,7 +6,7 @@ Param(
 # Prerequisites Check
 
 
-if ((get-host).Version.Major -le 4) {
+if ((get-host).Version.Major -lt 4) {
 
     write-host -foregroundcolor red "You are running an old (and unsupported) version of Powershell, please consider to update the Powershell before running this script"
     exit
