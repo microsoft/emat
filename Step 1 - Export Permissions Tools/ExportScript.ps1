@@ -128,7 +128,8 @@ import-csv mailboxes.csv | Get-ADPermission | select Identity,User,@{Name='Acces
 import-csv mailboxes.csv | Get-MailboxPermission | select Identity,User,@{Name='AccessRight';Expression={"MP"}},ExtendedRight,FolderPath | export-csv mp.csv -encoding "unicode" -NoTypeInformation 
 
 # SendOnBeHalf permissions
-import-csv mailboxes.csv | get-mailbox | ?{$_.GrantSendOnBehalfTo} | select Identity,@{Name='User';Expression={[string]::join(";",($_.GrantSendOnBehalfTo))}},@{Name='AccessRight';Expression={"SNB"}},ExtendedRight,FolderPath | export-csv SnB.csv -encoding "unicode" -NoTypeInformation 
+# import-csv mailboxes.csv | get-mailbox | ?{$_.GrantSendOnBehalfTo} | select Identity,@{Name='User';Expression={[string]::join(";",($_.GrantSendOnBehalfTo))}},@{Name='AccessRight';Expression={"SNB"}},ExtendedRight,FolderPath | export-csv SnB.csv -encoding "unicode" -NoTypeInformation 
+import-csv mailboxes.csv | get-mailbox | ?{$_.GrantSendOnBehalfTo} | select Identity,@{Name='User';Expression={$_.GrantSendOnBehalfTo -join ";"}},@{Name='AccessRight';Expression={"SNB"}},ExtendedRight,FolderPath | export-csv SnB.csv -encoding "unicode" -NoTypeInformation
 
 
 # Get Folder Permissions (Exchange 2010+ is required)
