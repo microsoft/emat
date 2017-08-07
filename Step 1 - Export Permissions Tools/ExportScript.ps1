@@ -152,10 +152,25 @@ $table.columns.add($col6)
 $all=import-csv mailboxes.csv
 foreach ($identity in $all) {
         $i=$i+1
-        $folders = Get-MailboxFolderStatistics $identity.Identity | % {$_.folderpath} | % {$_.replace("/","\")}
+        [System.Collections.ArrayList]$folders = Get-MailboxFolderStatistics $identity.Identity | % {$_.folderpath} | % {$_.replace("/","\")}
 	$alias=$identity.windowsEmailAddress
-        $utente = $folders | %{ Get-MailboxFolderPermission $alias":"$_ | select Identity,User,Accessrights,foldername}
+	$folders.Remove("\Versions")
+	$folders.Remove("\Journal")	
+	$folders.Remove("\Deletions")
+	$folders.Remove("\Calendar Logging")
+	$folders.Remove("\Recoverable Items")
+	$folders.Remove("\Livello superiore archivio informazioni")
+	$folders.Remove("\Working Set")
+	$folders.Remove("\Posta indesiderata")
+	$folders.Remove("\Conversation Action Settings")
+	$folders.Remove("\Purges")
+	$folders.Remove("\Posta in uscita")
+	$folders.Remove("\Contatti\Recipient Cache")
+	$folders.Remove("\Top of Information Store")
 
+
+        $utente = $folders | %{ Get-MailboxFolderPermission $alias":"$_ | select Identity,User,Accessrights,foldername} | where {$_.User -notlike "Default*" -and $_.User -notlike "Anonymous*"}
+	
 
 	foreach ($riga in $utente) {
 		$acc=[string]::join(";",($riga.Accessrights))
@@ -165,9 +180,9 @@ foreach ($identity in $all) {
 		$row.AccessRights="FP"
 		$row.PermissionType="FP"
 		$row.ExtendedRight=""
-		$row.FolderPath="NoDetails"
+		$row.FolderPath=$riga.foldername
 		$table.rows.add($row)
-                }
+		}
 }
 
 $table | export-csv fp.csv -encoding "unicode" -NoTypeInformation 
