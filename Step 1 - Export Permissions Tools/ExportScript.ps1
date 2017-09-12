@@ -61,7 +61,7 @@ if ($MailboxesFileSize -gt 7 -and $silent -eq $false) {
 		mkdir Sessions > $null
 		cd Sessions
 		mkdir Session1  > $null
-		$original_file | select -first $first -last $last | export-csv Session1\Session_1.csv -encoding "unicode" -NoTypeInformation
+		$original_file | select -first $first -last $last | export-csv Session1\mailboxes.csv -encoding "unicode" -NoTypeInformation
 		Get-Content ..\ExportScript.ps1 | select -skip $splitrow[1] >> Session1\ExportScript.ps1
 		write-host -foregroundColor green "The files will cointains about $block users each"
 		write-host -ForegroundColor yellow "Session 1 - Created - from $first to $last"
