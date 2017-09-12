@@ -11,4 +11,7 @@ Check [Documentation] pages for information.
 The ExportScript.T2T.ps1 is a porting of the script to allow to get Exchange permissions from Office 365.
 This scenario cames up from a particular requirement from a customer that need to migrate Tenant2Tenant and wants to create migration batches.
 
+You can use the MergeSessionsFiles.ps1 script to merge the files if you are using Sessions.
+Collect all sessions folders in the mail folder (where there is the big mailboxes.csv files) and execute this script
+
 
