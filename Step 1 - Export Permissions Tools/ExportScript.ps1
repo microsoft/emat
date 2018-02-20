@@ -9,6 +9,8 @@ Param(
 if ((get-host).Version.Major -lt 4) {
 
     write-host -foregroundcolor red "You are running an old (and unsupported) version of Powershell, please consider to update the Powershell before running this script"
+    write-host "Press any key to continue..."
+    [void][System.Console]::ReadKey($true)	
     exit
 
 }
@@ -16,6 +18,8 @@ if ((get-host).Version.Major -lt 4) {
 if ( (Get-Command get-mailbox -errorAction SilentlyContinue) -eq $null )
 {
     write-host -foregroundcolor red "Exchange Powershell module is not available, be sure to run the script from a server that have this feature installed"
+    write-host "Press any key to continue..."
+    [void][System.Console]::ReadKey($true)
     exit
 }
 
@@ -23,6 +27,8 @@ if ( (Get-Command get-mailbox -errorAction SilentlyContinue) -eq $null )
 if ( (Get-Command get-group -errorAction SilentlyContinue) -eq $null )
 {
     write-host -foregroundcolor red "AD DS Powershell module is not available, be sure to run the script from a server that have this feature installed"
+    write-host "Press any key to continue..."
+    [void][System.Console]::ReadKey($true)
     exit
 }
 
