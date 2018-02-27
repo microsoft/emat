@@ -1,0 +1,9 @@
+﻿<Application x:Class="EMAT3._0_GetExchangePermissions.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:EMAT3._0_GetExchangePermissions"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

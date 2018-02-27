@@ -1,0 +1,42 @@
+﻿<Window x:Class="EMAT3._0_GetExchangePermissions.MainWindow"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EMAT3._0_GetExchangePermissions"
+        mc:Ignorable="d"
+        Title="Get Permissions and Group Membership - EMAT 2.0 tool" Height="555.875" Width="569.199">
+    <Grid Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="button" Content="Go Go Go!" HorizontalAlignment="Left" Margin="372,172.857,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.539,1.828" Click="button_Click" Grid.Row="1"/>
+        <TextBox x:Name="textBox_username" HorizontalAlignment="Left" Height="23" Margin="337,40,0,0" TextWrapping="Wrap" Text="RESOURCE\administrator" VerticalAlignment="Top" Width="184" RenderTransformOrigin="0.019,-2.498" GotFocus="textBox_username_GotFocus" />
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="337,89,0,0" VerticalAlignment="Top" IsEnabled="false" Width="184" RenderTransformOrigin="-0.509,1.079" Height="23" Password="Password.123" GotFocus="passwordBox_GotFocus"/>
+        <TextBox x:Name="textBox_domainFQDN" HorizontalAlignment="Left" Height="23" Margin="337,135,0,0"  IsEnabled="false" TextWrapping="Wrap" Text="resource.emea.local" VerticalAlignment="Top" Width="184" RenderTransformOrigin="0.019,-2.498" GotFocus="textBox_domainFQDN_GotFocus"/>
+        <TextBox x:Name="textBox_DCIP" HorizontalAlignment="Left" Height="23" Margin="337,185,0,0" IsEnabled="false" TextWrapping="Wrap" Text="192.168.1.22" VerticalAlignment="Top" Width="184" RenderTransformOrigin="0.019,-2.498" GotFocus="textBox_DCIP_GotFocus"/>
+
+
+
+
+
+        <TextBlock x:Name="textBlock_log" HorizontalAlignment="Left" Margin="27,207.857,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="464" RenderTransformOrigin="0.063,1" Grid.Row="1"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="Insert a valid Username to read group membership:  (ex. DOMAIN\User or user@domain.local)" VerticalAlignment="Top" Width="284"/>
+        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="Insert a valid password for the username above:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" Margin="10,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284"><Run Text="Insert the domain FQDN: "/><LineBreak/><Run Text="(not forest wide, only the domain will be scanned)"/></TextBlock>
+        <TextBlock x:Name="textBlock1_Copy2" HorizontalAlignment="Left" Margin="10,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Text="Insert a reachable domain controller for the domain above: "/>
+        <TextBlock x:Name="textBlock_version" HorizontalAlignment="Left" Margin="441,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.063,1" Text="Version: 0.3 Beta"/>
+        <CheckBox x:Name="GetGroupMembership" Content="Get Groups Membership (for Group Expansion)" HorizontalAlignment="Left" Margin="67,62.143,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <CheckBox x:Name="CheckboxGetSendas" Content="Get SendAs Permissions" HorizontalAlignment="Left" Margin="67,102.143,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <CheckBox x:Name="CheckboxGetFolderPermissions" Content="Get Folder Permissions (development in progress....)" HorizontalAlignment="Left" Margin="67,122.143,0,0" VerticalAlignment="Top" Grid.Row="1" IsEnabled="False"/>
+        <CheckBox x:Name="GetMailboxPermissions" Content="Get Mailbox Permissions" HorizontalAlignment="Left" Margin="67,82.143,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBlock x:Name="textBlock_SelectActions" HorizontalAlignment="Left" Margin="27,36.143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="464" RenderTransformOrigin="0.063,1" Text="Select Actions:" Grid.Row="1"/>
+        <TextBlock x:Name="textBlock1_Copy3" HorizontalAlignment="Left" Margin="10,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Text="Insert the Exchange Web Services Endpoint                      (for example, mail.contoso.com) ... ONLY NEEDED FOR FOLDER PERMISSIONS" Grid.RowSpan="2"/>
+        <TextBox x:Name="textBox_EWS" HorizontalAlignment="Left" Height="23" Margin="337,226,0,0" IsEnabled="false" TextWrapping="Wrap" Text="192.168.1.22" VerticalAlignment="Top" Width="184" RenderTransformOrigin="0.019,-2.498" GotFocus="textBox_DCIP_GotFocus" Grid.RowSpan="2"/>
+        <CheckBox x:Name="CheckboxGetSNB" Content="Get Send On Behalf Permissions" HorizontalAlignment="Left" Margin="67,141.857,0,0" VerticalAlignment="Top" Grid.Row="1" IsEnabled="False"/>
+    </Grid>
+
+
+</Window>
+

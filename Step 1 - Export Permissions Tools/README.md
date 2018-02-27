@@ -15,3 +15,5 @@ You can use the MergeSessionsFiles.ps1 script to merge the files if you are usin
 Collect all sessions folders in the mail folder (where there is the big mailboxes.csv files) and execute this script
 
 
+Under "ExportToolSource" I just published the source code of the export tools. Normal and thru RestAPI. The Normal is in advanced stage of development (but is not fully working right now), while the RestAPI is just a proof of concept, a branch of the main code.
+
