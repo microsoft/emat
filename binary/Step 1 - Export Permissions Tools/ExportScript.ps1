@@ -128,7 +128,13 @@ if ($MailboxesFileSize -gt 7 -and $silent -eq $false) {
 
 
 # ADPermissions: Send-AS, Receive-AS
-import-csv mailboxes.csv | Get-ADPermission | select Identity,User,@{Name='AccessRight';Expression={"AD"}},ExtendedRight,FolderPath | export-csv ad.csv -encoding "unicode" -NoTypeInformation 
+# import-csv mailboxes.csv | Get-ADPermission | select Identity,User,@{Name='AccessRight';Expression={"AD"}},ExtendedRight,FolderPath | export-csv ad.csv -encoding "unicode" -NoTypeInformation 
+$all=import-csv mailboxes.csv
+foreach ($identity in $all) {
+	Get-ADPermission $identity.Identity | select Identity,User,@{Name='AccessRight';Expression={"AD"}},ExtendedRight,FolderPath | export-csv ad.csv -encoding "unicode" -NoTypeInformation -Append
+	}
+
+
 
 # Mailbox Permissions: FullAccess, Read
 import-csv mailboxes.csv | Get-MailboxPermission | select Identity,User,@{Name='AccessRight';Expression={"MP"}},ExtendedRight,FolderPath | export-csv mp.csv -encoding "unicode" -NoTypeInformation 
