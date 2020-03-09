@@ -2,7 +2,7 @@
  Exchange Migration Assessment Tool
 
 
-**Exchange Migration Assessment Tool**
+## Exchange Migration Assessment Tool
 
 Exchange Migration Assessment Tool helps to create migration groups based on relationship between mailboxes (Mailbox, AD, SendOnBehalf and Folder Permissions). Export your data using the Powershell Scripts and use the tool to calculate groups.
 
@@ -20,19 +20,12 @@ See how to build a good blacklist.csv file at the  [Blacklist File](https://gith
 
 
 Minimum System Requirements:
-   ◾A Microsoft supported OS version, client or server
-
-   ◾PowerShell 4.0
-
-   ◾.NET Framework 4.6.1
-
-   ◾2 CPUs (at least)
-
-   ◾4 GB RAM (at least)
-
-   ◾Using a production VM, consider that all CPUs and RAM may be consumed
-
-
+    *   A Microsoft supported OS version, client or server
+    *   PowerShell 4.0
+    *   .NET Framework 4.6.1
+    *   2 CPUs (at least)
+    *   4 GB RAM (at least)
+    *   Using a production VM, consider that all CPUs and RAM may be consumed
 
 
 Nested groups is not fully supported.
