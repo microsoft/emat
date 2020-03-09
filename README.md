@@ -2,16 +2,50 @@
  Exchange Migration Assessment Tool
 
 
-Exchange Migration Assessment Tool helps to create migration groups based on relationship between mailboxes (Mailbox, AD, SendOnBehalf and Folder Permissions).
-Download and execute the PowerShell script to export all required data in the required format.
-The PowerShell script is available in the "Step 1 - Export Permissions Tools" section
+**Exchange Migration Assessment Tool**
 
-Use the tool to calculate groups in the "Step 2 - Normalize and calculate groups" section
+Exchange Migration Assessment Tool helps to create migration groups based on relationship between mailboxes (Mailbox, AD, SendOnBehalf and Folder Permissions). Export your data using the Powershell Scripts and use the tool to calculate groups.
 
-A trial of an executable that is able to export data faster is available in the Downloads section.
-Consider it as an "alpha" that is still under development. No ETA at the moment.
+Refer to Documentation for up-to-date instructions
 
-Please refer to the Wiki Pages for details.
+
+Please refer to [Export Process](https://github.com/Microsoft/emat/wiki/Export-Process) Wiki Page for details about Export Process.
+Please refer to [Calculation Process](https://github.com/Microsoft/emat/wiki/Calculation-Process) Wiki Page for details about Calculation Process.
+
+Please refer to [Output.csv](https://github.com/Microsoft/emat/wiki/Output.csv) Wiki Page for details about Output file.
+
+See how to build a good blacklist.csv file at the  [Blacklist File](https://github.com/Microsoft/emat/wiki/Blacklist-File) Wiki Page
+
+
+
+
+Minimum System Requirements:
+   ◾A Microsoft supported OS version, client or server
+
+   ◾PowerShell 4.0
+
+   ◾.NET Framework 4.6.1
+
+   ◾2 CPUs (at least)
+
+   ◾4 GB RAM (at least)
+
+   ◾Using a production VM, consider that all CPUs and RAM may be consumed
+
+
+
+
+Nested groups is not fully supported.
+
+
+
+
+** THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, OR SUPPORT. **
+
+In no event shall the author be liable for any special, direct, indirect, or consequential damages or any damages
+whatsoever resulting from loss of use, data or profits, whether in an action of contract, negligence or other tortious action, arising out of or in connection with the use or performance of this software.
+
+
 
 
 
