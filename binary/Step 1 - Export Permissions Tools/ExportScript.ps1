@@ -88,7 +88,7 @@ if ($MailboxesFileSize -gt 7 -and $silent -eq $false) {
 
 
 # Get the list of the groups, only the MailUniversalSecurityGroup (Exchange supported groups to provide permissions) are fetched
-Get-Group -RecipientTypeDetails MailUniversalSecurityGroup -ResultSize Unlimited | Select Name,Alias,DisplayName,WindowsEmailAddress,SamAccountName | export-csv groups.csv -NoTypeInformation
+Get-Group -RecipientTypeDetails MailUniversalSecurityGroup -ResultSize Unlimited | Select Name,Alias,DisplayName,WindowsEmailAddress,SamAccountName | export-csv groups.csv -encoding "unicode" -NoTypeInformation
 
 # Using the list of groups export the group membership
 $groups=(import-csv groups.csv).samaccountname 
